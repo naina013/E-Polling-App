@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/bootstrap.css");
+    @Styles.Render("~/bundles/modernizr");
+</head>
+
+    <body style=" opacity:0.6;background:no-repeat ;background-color:white">
+    <div>
+    <img src="~/Content/images/image.jpg" ; style ="height:200px ; width:1250px"/>
+        </div>
+     <nav class="navbar navbar-inverse" role="navigation" style="font-family:Batang ; font:bold">      
+        <div>
+            <ul class="nav navbar-nav " style="font-family:Batang ; font:bold">
+                <li style="margin-left:700px"><a href="/home/index">HOME</a></li>                
+                <li><a href="/home/vote">VOTE</a></li>
+                <li><a href="/home/result">VIEW RESULTS</a></li>
+                <li><a href="/home/contact">CONTACT US</a></li>
+                <li><a href="/home/aboutUs">ABOUT US</a></li>
+            </ul>           
+        </div>         
+        </nav>
+   
+        <div>
+         @RenderBody()
+            </div>
+       
+        <div>
+            <footer style="background-color: #376723 ; margin-top:10px ;height:50px " >
+        <p style="color:white ; margin-left:400px">&copy;All rights reserved by BITF12M028 2015 </p>
+           </footer>
+        </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+
+    </body>
+  
+   
+   
+
+</html>

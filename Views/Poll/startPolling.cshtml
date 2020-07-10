@@ -1,0 +1,48 @@
+﻿@using e_pollingApp.Models
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>addNewPoll</title>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <script src="bootstrap.js"></script>
+</head>
+<body>
+    <form action="/Poll/resultOfPoll" method="post">
+
+        <div>
+            <table>
+                @foreach (poll p in Model)
+                {
+                    <tr>
+                        <td>@p.poll1</td>
+
+                        <td>
+                            <img src= "@Url.Content(@p.Pimg)" alt="Image"  style="width: 250px; height: 150px;"/></td>
+                    </tr>                
+                    <tr>
+                        <td>@Html.RadioButton(p.Id.ToString(), "yes", new { value = "yes" }) YES</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.RadioButton(p.Id.ToString(), "no", new { value = "no" }) NO</td>
+                    </tr>
+                   
+                }
+            </table>
+        </div>
+        <br />
+        <br />
+        <textarea rows="5" class="form-control" style="width: 650px" cols="50" placeholder="Your Comment" name="comment"></textarea>
+        <br />
+        <br />
+
+        <input type="submit" value="Vote" class="btn btn-info " style="margin-left: 650px; height: 50px; width: 75px">
+    </form>
+</body>
+</html>

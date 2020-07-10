@@ -1,0 +1,98 @@
+﻿@model dynamic
+@using e_pollingApp.Models
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>result</title>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <script src="bootstrap.js"></script>
+</head>
+<body>
+     @{
+        string msg2 = Convert.ToString(TempData["message2"]);
+        @msg2;       
+
+    <div>
+        <h1 class="h1" style="font-size: 100px; font-family: Batang; text-align: center">Results</h1>
+        <br />
+
+        <div>
+            <table>
+                @{double yesCount = 0;}
+                @{double noCount = 0;}
+
+                @foreach (poll p in Model.Polls)
+                {                
+                    <tr>
+                        <td>@p.poll1</td>
+                        <td>
+                            <img src= "@Url.Content(@p.Pimg)" alt="Image" style="width: 250px; height: 150px;"/></td>
+                    </tr>
+                    yesCount = 0;
+                    noCount = 0;
+                    foreach (Result r in Model.Res)
+                    {
+                        if (r.PID == p.Id)
+                        {
+                            if (r.option == true)
+                            {
+                                yesCount++;
+                            }
+                            else
+                            {
+                                noCount++;
+                            }
+                        }
+                    }
+                   
+                    <tr>
+                        <td>
+                            <input type ="text" readonly ="true" value ="Result =  @Math.Round(((@yesCount / (@yesCount + @noCount)) * 100)) % Yes" /></td>
+                    </tr>
+                   
+                    <tr>
+                        <td>
+                            <input type ="text" readonly ="true" value ="Result =  @Math.Round(((@noCount / (@yesCount + @noCount)) * 100)) % NO" /></td>
+                    </tr>
+                    
+                }
+
+            </table>
+        </div>
+        <br />
+        <br />
+
+        <h3>Public Comments: </h3>
+    
+
+            @foreach (Result x in Model.Res)
+            {
+                
+                if (x.PID == 1)
+                {
+                    <div style="background-color:ButtonHighlight">
+                    
+                    @(x.comment + "\n")
+                        <br /><br />
+                        <p style="float:right">Posted by Anonymous</p>
+                        <br />       
+                     
+                    </div>
+                <br />
+                    
+                }           
+                
+            }
+
+        
+    </div>
+     }
+</body>
+</html>

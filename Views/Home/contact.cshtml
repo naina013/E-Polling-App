@@ -1,0 +1,54 @@
+﻿@using e_pollingApp.Models
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>contact</title>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <script src="bootstrap.js"></script>
+</head>
+<body>
+   
+   <div id="college_lists_data"  class="container" >
+     
+       <h1 style="font-family:Calibri; text-align:center">Contact Us</h1>  
+        <br>
+       
+            <div >
+             <form action ="/home/contact" method="post">
+                <div class="form-group">
+                  <div class="col-xs-3">
+                    <input class="form-control" style="margin-left:400px" id="ex1" placeholder="Your Name" type="text" name="name" required>
+                      <br />
+                      <br />
+                       <input class="form-control" style="margin-left:400px" id="ex2" placeholder="Your Email" type="email" name="mail" required>
+                    
+                      <br />
+                      <br />
+            
+                     <textarea  rows="5"  class="form-control"  style="margin-left:400px"  cols="50"  placeholder="your comment" name ="comment" required></textarea>
+        
+                   </div>
+                    </div>
+                 <br />
+
+                  <button  style="margin-left:150px; margin-top:300px" type="submit" class="btn btn-success" >Submit</button>
+                   <button style="margin-left:50px; margin-top:300px"  type="reset" class="btn btn-warning" >Cancel</button>
+                   </form>
+                </div>
+         <br />
+       </div>
+    
+         <div>
+              
+             </div>
+   
+     
+</body>
+</html>

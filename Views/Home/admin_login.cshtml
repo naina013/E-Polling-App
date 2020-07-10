@@ -1,0 +1,73 @@
+﻿@model e_pollingApp.Models.admin
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>admin_login</title>
+    @Scripts.Render("~/Bundles/jquery")
+    @Scripts.Render("~/Bundles/jqueryui")
+    @Scripts.Render("~/Bundles/jqueryval")
+
+</head>
+<body>
+    <div id="college_lists_data" class="container">
+
+        <p class="h1" style="font-size: 50px; font-family: Batang; text-align: center">Admin Login</p>
+        <br />
+        
+        <div>
+            <center>
+            @using (Html.BeginForm("validateAdmin","Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+            
+                    <div class="form-group">
+                      <div class="col-sm-3">
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name" ,style = "margin-left:400px"})
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                           
+                    </div>
+                    <br />
+                    <br />
+                    <br/>
+
+                    <div class="form-group">
+                      <div class="col-sm-3">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password", style = "margin-left:400px" })
+                            @Html.ValidationMessageFor(model => model.Password)
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+               
+
+                    <div class="form-group">
+                     <div class="col-sm-3">
+                            @Html.PasswordFor(m => m.Confirm_password, new { @class = "form-control", placeholder = "Confirm password" , style = "margin-left:400px" })
+                            @Html.ValidationMessageFor(model => model.Confirm_password)
+                        </div>
+                    </div>
+                  
+                <div>
+                  
+                      <button style=" margin-top: 100px" type="submit" class="btn btn-success">Login</button>
+
+                </div>
+            }
+           </center>
+        </div>
+    
+           
+        <br />
+</body>
+
+
+</html>

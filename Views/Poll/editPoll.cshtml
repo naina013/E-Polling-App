@@ -1,0 +1,31 @@
+﻿@model e_pollingApp.Models.poll
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>editPoll</title>
+</head>
+<body>
+    <div>
+          @using (Html.BeginForm("edit", "Poll", FormMethod.Post , new { enctype="multipart/form-data", data_ajax="false"}))
+        {
+            @Html.HiddenFor(m => m.Id)
+            @Html.LabelFor(m => m.poll1)
+            @Html.EditorFor(m => m.poll1 , new { style="width:1600px ; height: 50px"  } )
+            
+              <br/><br/><br/>
+           <input type="file" name="Pimg" /> 
+            <br/><br/><br/>
+            
+            <input type="submit" value="Save" />
+        }
+        
+    </div>
+</body>
+</html>

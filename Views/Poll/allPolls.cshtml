@@ -1,0 +1,37 @@
+﻿@using e_pollingApp.Models
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>allPolls</title>
+     <link href="bootstrap.css" rel="stylesheet" />
+    <script src="bootstrap.js"></script>
+
+</head>
+<body>
+    <div>
+        <button name="button" value="ActionOne" class="button" style="float:right ; height:65px ;margin-right:10px ;border-style:solid"  onclick="location.href='@Url.Action("logout", "Home")'">
+         <img src="~/Content/images/logout.jpg"/></button>
+    </div>
+    <div>
+       @Html.ActionLink("Add New","addPoll")
+        <table border="1">
+          @foreach(poll p in Model)
+            {
+                <tr><td>@p.Id</td><td>@p.poll1</td>
+                    <td>@Html.ActionLink("Edit", "editPoll", new { id = p.Id})</td>
+                    <td>@Html.ActionLink("Delete", "deletePoll", new { id = p.Id })</td></tr>
+              
+                    
+            }
+            </table>
+
+    </div>
+</body>
+</html>

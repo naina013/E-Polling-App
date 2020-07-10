@@ -1,0 +1,42 @@
+﻿@model List<e_pollingApp.Models.poll>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>addPoll</title>
+</head>
+<body>
+  
+<div>
+    <div>
+        @foreach (var x in Model)
+        {
+            <label>@x.poll1</label>
+            <hr />
+        }
+    </div>
+    <form action="/Poll/add" method="post" enctype="multipart/form-data" >
+
+        <input type ="text" style="width:800px ; height: 50px" name ="poll" placeholder="add poll"/><br/><br/><br/>
+         Upload Image: <br/><input type="file" name="Pimg" /> 
+ 
+        <input type="submit" value="Add" class="btn btn-info pull-center" style ="margin-left:750px" /><br/><br/>
+       
+        <br /><br />
+</form>
+
+    <form action="/Poll/Save" method="post" >
+
+        Poll end date :<input type ="date"  name ="date"/><br/><br/><br/>
+        <input type="submit" value="Save poll" class="btn btn-info " style ="margin-left:25%" /><br/><br/>
+       
+        <br /><br />
+</form>
+    </div>
+</body>
+</html>
